@@ -77,7 +77,7 @@ const OpenSourceSection = () => {
       <div className="flex justify-center pt-2">
         <Button asChild size="lg" className="text-base">
           <Link to="/opensource">
-            View all Open Source
+            View all Open Source ({operSourceProjects.length})
             <ChevronRight strokeWidth={2.25} />
           </Link>
         </Button>
