@@ -1,4 +1,4 @@
-User-agent: *
+httpsUser-agent: *
 Allow: /
 
-Sitemap: https://charanmunur.in/sitemap.xml
+Sitemap: https://sameer-khan.xyz/sitemap.xml
