@@ -471,7 +471,8 @@ A simple, clean dataset containing every country in the world, their population,
 If you don't want to use Kaggle,here other two great options:
 
 1. **Maven Analytics Data Playground:** The best data playground specifically built for Tableau/Power BI learners. They have clean datasets about Pizza sales, World Cup history, and Video Game sales. 
-2. **Data.gov:** The US government's open data portal. Great for massive, real-world CSVs on agriculture, climate, and economics.``
+2. **Data.gov:** The US government's open data portal. Great for massive, real-world CSVs on agriculture, climate, and economics.`
 
 },
+
 ];
