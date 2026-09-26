@@ -428,11 +428,11 @@ GitHub’s default suggestions prioritize convenience and data collection over p
 
 {
   title: "The 4 Best Datasets to Learn Tableau (And Where to Find Them)",
-  description: "The 4 best datasets to practice Tableau as a beginner. Learn exactly what to download, where to find it, and pro tips to master mapping, timelines, and dashboards.",
+  description: "The 4 best datasets to practice Tableau as a beginner.",
   tags: ["Tableau", "Data Analysis", "Data Visualization", "Beginners", "Datasets", "Analytics", "Kaggle"],
   date: "2026-09-20",
   readTime: "4 min read",
-  content: ` **Right data to practice with as beginner.**
+  content: `
 
 ## 1. The "Global Superstore" Dataset (The Gold Standard)
 
