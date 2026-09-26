@@ -13,7 +13,7 @@ export const blogs: Blog[] = [
     description:
       "Data pipelines break constantly, usually because someone changed a column name upstream. Here's how I built an agent that detects the break, fixes the SQL, tests it, and opens a pull request on its own.",
     tags: ["Data Engineering", "AI Agents", "LangGraph", "dbt"],
-    date: "2026-08-22",
+    date: "2026-06-22",
     readTime: "5 min read",
     content: `Data pipelines break all the time. It's one of the most common pain points in data engineering.
 
