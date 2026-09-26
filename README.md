@@ -119,7 +119,7 @@ This project is configured for seamless deployment on Vercel.
 
 
 
-###### Credit- /CharanMunur
+###### Credit- [/CharanMunur](https://github.com/CharanMunur/Portfolio)
 
 
 <div align="center">
@@ -128,4 +128,3 @@ This project is configured for seamless deployment on Vercel.
     Thanks for stoping by. 
   </sub>
 </div>
-Test
