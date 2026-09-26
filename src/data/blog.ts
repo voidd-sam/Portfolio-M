@@ -331,7 +331,7 @@ Please consider giving a star on GitHub if you like this project.`
   title: "Enable GitHub 2FA with KeePass: A Privacy-Focused Alternative",
   description: "Ditch cloud-synced authenticators like Authy, Microsoft, or Bitwarden. Learn how to use KeePass for GitHub 2FA to keep your TOTP codes completely offline, free, and entirely under your control.",
   tags: ["GitHub", "KeePass", "Cybersecurity", "2FA", "Privacy", "TOTP", "Open Source"],
-  date: "2026-09-22",
+  date: "2026-09-16",
   readTime: "4 min read",
   content: `GitHub pushes you toward Authy, Microsoft Authenticator, and Bitwarden when setting up two-factor authentication (2FA). But these "convenient" options come with hidden privacy trade-offs.
 
