@@ -25,7 +25,7 @@ const ProjectSection = () => {
       <div className="flex justify-center pt-6">
         <Button asChild size="lg" className="text-base">
           <Link to="/projects">
-            View all Projects
+            View all Projects ({projects.length})
             <ChevronRight strokeWidth={2.25} />
           </Link>
         </Button>
