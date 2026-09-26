@@ -427,8 +427,8 @@ GitHub’s default suggestions prioritize convenience and data collection over p
 },
 
 {
-  title: "The 4 Best Datasets to Learn Tableau (And Where to Find Them)",
-  description: "The 4 best datasets to practice Tableau as a beginner.",
+  title: "The 4 Best Datasets to practice Tableau as beginner (And Where to Find Them)",
+  description: "These datasets help you understand how to move around in tableau without getting overwhelmed",
   tags: ["Tableau", "Data Analysis", "Data Visualization", "Beginners", "Datasets", "Analytics", "Kaggle"],
   date: "2026-09-20",
   readTime: "4 min read",
