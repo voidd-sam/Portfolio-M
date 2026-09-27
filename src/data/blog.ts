@@ -5,6 +5,7 @@ export interface Blog {
   tags: string[];
   date: string;
   readTime: string;
+  pinned?: boolean;
 }
 
 export const blogs: Blog[] = [
@@ -15,6 +16,7 @@ export const blogs: Blog[] = [
     tags: ["Data Engineering", "AI Agents", "LangGraph", "dbt"],
     date: "2026-06-22",
     readTime: "5 min read",
+    pinned: true,
     content: `Data pipelines break all the time. It's one of the most common pain points in data engineering.
 
 An upstream API renames a column — say \`user_dob\` becomes \`date_of_birth\` — and suddenly the entire analytics pipeline crashes. A data engineer has to drop everything, dig through logs, figure out what changed, rewrite the SQL, and open a pull request. It's slow, repetitive, manual toil.

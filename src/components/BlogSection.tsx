@@ -7,7 +7,13 @@ import { ChevronRight } from "lucide-react";
 const BlogSection = () => {
   // sorts blogs by date (newest first) and takes the top 2
   const recentBlogs = [...blogs]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => {
+      // Pinned blogs always go to the top
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+      // Otherwise, sort by date (newest first)
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    })
     .slice(0, 2);
 
   return (
