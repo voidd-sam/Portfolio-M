@@ -30,7 +30,7 @@ export const blogs: Blog[] = Object.values(blogFiles)
       let value: any = line.slice(splitIndex + 1).trim();
 
       if (value.startsWith("[") && value.endsWith("]")) {
-        value = value.slice(1, -1).split(",").map(v => v.trim().replace(/^"|"$/g, ""));
+        value = value.slice(1, -1).split(",").map((v: string) => v.trim().replace(/^"|"$/g, ""));
       } else if (value === "true" || value === "false") {
         value = value === "true";
       } else {
