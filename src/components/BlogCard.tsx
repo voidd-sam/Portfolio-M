@@ -1,5 +1,5 @@
 import type { Blog } from "@/data/blog";
-import { ArrowUpRight, Clock Pin } from "lucide-react";
+import { ArrowUpRight, Clock, Pin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const BlogCard = ({ title, description, tags, date, readTime, pinned }: Blog) => {
