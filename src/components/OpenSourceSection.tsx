@@ -2,7 +2,7 @@ import { openSourceProjects } from "@/data/opensource";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, GitPullRequest, CircleDot, ArrowUpRight } from "lucide-react";
-import { OpenSourceComingSoonCard } from "./OpenSourceComingSoonCard";
+
 
 const OpenSourceSection = () => {
   const preview = openSourceProjects.slice(0, 4);
@@ -74,9 +74,7 @@ const OpenSourceSection = () => {
           );
         })}
       </div>
-      <div className="mt-6">
-        <OpenSourceComingSoonCard />
-      </div>
+      
 
       <div className="flex justify-center pt-2">
         <Button asChild size="lg" className="text-base">
