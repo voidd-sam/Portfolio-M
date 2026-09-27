@@ -2,7 +2,7 @@ import { openSourceProjects } from "@/data/opensource";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, GitPullRequest, CircleDot, ArrowUpRight } from "lucide-react";
-import OpenSourceComingSoonCard from "./OpenSourceComingSoonCard";
+import { OpenSourceComingSoonCard } from "./OpenSourceComingSoonCard";
 
 const OpenSourceSection = () => {
   const preview = openSourceProjects.slice(0, 4);
