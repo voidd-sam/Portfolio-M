@@ -15,16 +15,13 @@ const App = () => {
       <div className="relative z-10 flex flex-col flex-1">
         <main className="pt-5 mx-auto flex w-full max-w-3xl flex-col gap-20 px-6 pb-6 sm:gap-20 sm:pb-20 overflow-hidden">
           <Hero />
-          <FadeIn>
-            <SkillSection />
-          </FadeIn>
           <Suspense
             fallback={
               <div className="h-40 animate-pulse bg-muted/20 rounded-xl" />
             }
           >
             <FadeIn>
-              <ProjectSection />
+              <Stats />
             </FadeIn>
           </Suspense>
           <Suspense
@@ -42,7 +39,7 @@ const App = () => {
             }
           >
             <FadeIn>
-              <BlogSection />
+              <ProjectSection />
             </FadeIn>
           </Suspense>
           <Suspense
@@ -51,9 +48,12 @@ const App = () => {
             }
           >
             <FadeIn>
-              <Stats />
+              <BlogSection />
             </FadeIn>
           </Suspense>
+          <FadeIn>
+            <SkillSection />
+          </FadeIn>
           <Suspense
             fallback={
               <div className="h-24 animate-pulse bg-muted/20 rounded-xl" />
