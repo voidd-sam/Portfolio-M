@@ -12,96 +12,221 @@ export const blogs: Blog[] = [
   {
     title: "Building a Self-Healing Data Pipeline",
     description:
-      "Data pipelines break constantly, usually because someone changed a column name upstream. Here's how I built an agent that detects the break, fixes the SQL, tests it, and opens a pull request on its own.",
-    tags: ["Data Engineering", "AI Agents", "LangGraph", "dbt"],
-    date: "2026-06-22",
-    readTime: "5 min read",
+      "Analytics pipelines fail in boring, predictable ways. Here is how I built an autonomous AI agent that detects schema drift, rewrites broken SQL, runs dbt tests, and opens a pull request automatically.",
+    tags: ["Data Engineering", "AI Agents", "LangGraph", "dbt", "Python"],
+    date: "2026-08-22",
+    readTime: "12 min read",
     pinned: true,
-    content: `Data pipelines break all the time. It's one of the most common pain points in data engineering.
+    content: `Analytics pipelines fail in boring, predictable ways. A source system renames a column. An API adds a required field. An upstream team ships a "small cleanup" on a Friday afternoon. The dbt model downstream still references the old name, the nightly run turns red, and a human gets paged to perform the same four-step dance they have done a hundred times: read the error, check the schema, patch the SQL, rerun the tests.
 
-An upstream API renames a column — say \`user_dob\` becomes \`date_of_birth\` — and suddenly the entire analytics pipeline crashes. A data engineer has to drop everything, dig through logs, figure out what changed, rewrite the SQL, and open a pull request. It's slow, repetitive, manual toil.
+This project asks a simple question: if the remediation loop is that mechanical, why is a human still in it?
 
-So I wanted to see if that whole process could be automated.
-
-The end result: an agent that detects a broken pipeline, diagnoses the schema mismatch causing it, rewrites the affected SQL, runs the data quality tests to confirm the fix works, and then opens a GitHub pull request for a human to review. Here's how I built it, and what actually got in the way.
+This is a local, fully reproducible demonstration of autonomous data-ops. It pairs a real analytics stack (PostgreSQL, dbt, Airflow) with a LangGraph ReAct agent equipped with tools to inspect the live database, read and rewrite model files, and execute the dbt test suite. A saboteur script deliberately introduces upstream schema drift; the agent diagnoses the failure, repairs the model, empirically verifies the fix, and delivers it through a standard GitOps workflow.
 
 ---
 
-## Why This Happens in the First Place
+## The Problem: Schema Drift
 
-Most modern data stacks lean on tools like dbt to transform raw data, and dbt runs on hardcoded SQL. The moment the underlying database schema shifts without warning, those models fail. This is usually called schema drift, and it's the kind of thing that turns into a broken dashboard, a confused executive, and an engineer stuck reading error logs for the rest of their afternoon. I wanted a system that could absorb that shock without a human needing to step in first.
+Schema drift is the routine failure mode of every analytics stack that consumes external systems. Today, the standard response looks like this:
 
----
+| Stage | Traditional Response | This Project |
+| --- | --- | --- |
+| Detection | An engineer notices a failed run | The pipeline failure triggers the agent |
+| Diagnosis | Manual: read logs, query the schema | The agent queries the live schema itself |
+| Fix | Hand-edited SQL | The agent rewrites the model SQL |
+| Verification | Rerun the job and hope | The agent runs dbt tests in a loop until green |
+| Delivery | Manually opened PR | The agent opens the PR; a human merges it |
 
-## The Stack
-
-I built this with Python, PostgreSQL, dbt, Docker, and LangGraph, with an LLM sitting at the center of it.
-
-Docker keeps everything isolated and reproducible so the setup behaves the same on any machine. dbt was the right transformation layer because its error output is structured and predictable — exactly the kind of thing an LLM can parse reliably. And LangGraph was the piece that let the agent behave in a loop rather than a straight line: try something, fail, read the new error, try again.
-
----
-
-## Setting Up the Infrastructure
-
-The first step was just getting a working environment. A Docker Compose file spins up Postgres, and a custom Dockerfile builds an Airflow image with dbt and the right Python dependencies baked in, so nothing touches the host machine directly.
-
-For data, I used a small Python script built on the Faker library to generate mock e-commerce records and load them into a raw table in Postgres. On top of that sit two dbt models — a staging model that selects from the raw table, and a mart model that aggregates daily revenue — along with standard dbt tests checking that order IDs are unique and non-null.
-
-At that point, I had a normal, healthy pipeline. Nothing broken yet.
+The goal is not to remove humans from the loop. It is to remove humans from the *tedium* of the loop, and to keep them exactly where judgment belongs: reviewing the diff.
 
 ---
 
-## Breaking It on Purpose
+## Architecture Overview
 
-To test a self-healing system, you need something to actually break. So I wrote a small script — I called it the schema breaker — that connects to Postgres and randomly mutates the schema: renaming a column, changing a type, or dropping a column outright. Once it runs, the dbt models fail immediately, because the SQL is still written for the schema that no longer exists.
+The system relies on a set of isolated Docker containers and a Python-based agent. The agent talks to any OpenAI-compatible endpoint, so the reasoning engine is swappable without touching the tool layer.
 
----
+\`\`\`mermaid
+flowchart LR
+    DG["data_generator.py<br/>(Faker)"] --> PG[("PostgreSQL<br/>raw_orders")]
+    SB["schema_breaker.py"] -. "renames a column" .-> PG
+    PG --> ST["stg_orders.sql"]
+    ST --> MR["mart_revenue.sql"]
+    AG["LangGraph ReAct agent"] --> PG
+    AG --> ST
+    AG --> GIT["Git branch + pull request"]
+\`\`\`
 
-## Giving the Agent Hands
-
-An LLM by itself is just a brain that outputs text. It can't touch a database or edit a file on its own — it needs tools to act through. So I wrote a small Python module giving the agent five capabilities: inspect the live database schema, read the broken dbt SQL file, overwrite that file with corrected SQL, run the dbt tests and return the output, and push changes to GitHub. Every one of these tools returns a plain string, since a string is the only thing the model can actually read back.
-
----
-
-## Building the Brain
-
-For the reasoning loop, I used LangGraph to build a ReAct-style agent — reasoning and acting in alternating steps. The system prompt frames it as an experienced data engineer: inspect the database, read the broken file, rewrite the SQL, then verify with tests.
-
-LangGraph handles the actual execution loop. The agent reads the error, decides to inspect the schema, reads that result, decides to rewrite the file, then runs the tests. If the tests still fail, it reads the new error and loops back to try again — this cyclical behavior was the whole reason LangGraph made sense here over a simple linear chain.
-
----
-
-## Making It Feel Like Real Engineering
-
-Having an AI silently overwrite local files is a fun demo, but it's not how any real team would want it running. No serious codebase lets an agent push straight to production. So I added a fifth tool purely for Git operations. Once the agent's fix passes the dbt tests, this tool creates a new branch, commits the fixed file, and pushes it up as a pull request — keeping a human in the loop before anything actually ships.
-
----
-
-## What Actually Went Wrong Along the Way
-
-None of this came together cleanly. A few things kept breaking:
-
-**Python version conflicts.** Some of the database drivers wouldn't compile against the system Python version. Using \`pyenv\` to install a clean, isolated Python version for just this project fixed it.
-
-**Docker permission mismatches.** Airflow runs as a specific user ID inside its container, while the local files belong to the host user. That mismatch meant the container couldn't read or write the dbt files until I explicitly set \`AIRFLOW_UID\` to match the host user.
-
-**Silent dbt failures.** Running dbt inside the Airflow container sometimes failed with no error output at all, due to shared library conflicts. Running dbt locally instead, pointed at the Dockerized database over localhost, made the failures visible again.
-
-**Messy repeated runs.** Running the whole demo more than once left the database and SQL files in an inconsistent state — the schema breaker would fail because a column was already renamed from the last run. I ended up writing a one-click reset script that wipes the Docker volumes, rebuilds the database, resets the SQL file, and then runs the full break-and-heal cycle from a clean slate every time.
-
-**API rate limits.** Larger models on free-tier API access hit token limits quickly. Switching to a smaller model with a higher rate limit, and trimming how much text the test tool returned, solved it.
+| Component | Role |
+| --- | --- |
+| PostgreSQL (Docker) | The warehouse holding raw data and dbt-built models |
+| dbt | The transformation layer: staging and marts models with tests |
+| Airflow (Docker) | The orchestration plane; the custom image includes dbt |
+| \`schema_breaker.py\` | The saboteur: simulates upstream schema drift |
+| \`agent_tools.py\` | The tool layer between the LLM and the system |
+| \`agent.py\` | LangGraph ReAct agent initialization and the repair loop |
 
 ---
 
-## Where This Leaves Me
+## Step 1: Setting Up the Infrastructure
 
-This project convinced me that LLMs are genuinely useful outside of chat interfaces — as agents that operate on real infrastructure, not just conversation. Combining dbt, LangGraph, and basic GitOps gets you a system that can absorb a class of failure that normally eats an engineer's afternoon, while still respecting the guardrail of a human reviewing the pull request before anything reaches production.
+The first step is getting a working environment. A Docker Compose file spins up PostgreSQL and Airflow. A custom Dockerfile builds an Airflow image with dbt and the right Python dependencies baked in, so nothing touches the host machine directly.
 
-If there's one thing I took from this: building something that removes a real operational headache teaches you far more than building another chatbot wrapper ever will.
+The PostgreSQL initialization script creates the \`raw_orders\` table:
 
-*that story's for the next blog.*`,
+\`\`\`sql
+CREATE TABLE raw_orders (
+    id SERIAL PRIMARY KEY,
+    customer_name VARCHAR,
+    order_date DATE,
+    order_amount NUMERIC,
+    order_status VARCHAR
+);
+\`\`\`
+
+A Python script built on the Faker library generates realistic mock e-commerce records and loads them into this raw table.
+
+---
+
+## Step 2: The dbt Transformation Layer
+
+On top of the raw data sit two dbt models:
+1. A **staging model** (\`stg_orders.sql\`) that selects from the raw table.
+2. A **mart model** (\`mart_revenue.sql\`) that aggregates daily revenue.
+
+Along with these models are standard dbt tests checking that order IDs are unique and non-null.
+
+The dbt profile is configured to point at the local Docker container:
+
+\`\`\`yaml
+dbt_project:
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: admin
+      password: your_secure_password
+      port: 5432
+      dbname: my_db
+      schema: public
+      threads: 1
+  target: dev
+\`\`\`
+
+At this point, the pipeline is healthy. Running \`dbt run\` followed by \`dbt test\` succeeds without errors.
+
+---
+
+## Step 3: Breaking the Pipeline on Purpose
+
+To test a self-healing system, you need something to actually break. I wrote a script called \`schema_breaker.py\`. It connects to Postgres and executes an \`ALTER TABLE\` statement to randomly mutate the schema: renaming a column, changing a type, or dropping a column outright.
+
+\`\`\`sql
+ALTER TABLE raw_orders RENAME COLUMN order_amount TO total_amount;
+\`\`\`
+
+Once it runs, the dbt models fail immediately, because the SQL is still written for the schema that no longer exists. The error output is explicit:
+
+\`\`\`text
+Database Error: column "order_amount" does not exist
+\`\`\`
+
+---
+
+## Step 4: Giving the Agent Hands (The Toolkit)
+
+An LLM by itself is just a brain that outputs text. It cannot touch a database or edit a file on its own. It needs tools to act through. I wrote a Python module giving the agent five narrow, auditable capabilities:
+
+| Capability | What it does |
+| --- | --- |
+| Inspect the live schema | Queries the database catalog so the agent sees what columns exist now |
+| Read a model file | Loads a model's \`.sql\` from disk into the agent's context |
+| Write a model file | Persists the agent's rewritten SQL to disk |
+| Run dbt tests | Executes the dbt suite and returns the raw output |
+| Git operations | Branch, commit, and push the verified fix |
+
+Because all reach flows through these functions, the blast radius is bounded. The agent can touch model files and feature branches, but the database schema itself and the \`main\` branch remain off-limits.
+
+---
+
+## Step 5: The Brain (LangGraph ReAct Loop)
+
+For the reasoning loop, I used LangGraph to build a ReAct-style agent. Standard LLM chains are linear and cannot recover from their own mistakes. Data engineering fixes are inherently iterative. LangGraph lets the agent loop.
+
+When the pipeline breaks, the agent is invoked with the dbt error output and cycles through four stages:
+
+\`\`\`mermaid
+flowchart TD
+    A["dbt run fails"] --> B["Agent invoked with error output"]
+    B --> C["1. Inspect<br/>query the live schema"]
+    C --> D["2. Read<br/>load the failing .sql model"]
+    D --> E["3. Write<br/>rewrite the SQL"]
+    E --> F["4. Test<br/>run dbt test"]
+    F -->|failure| C
+    F -->|pass| G["GitOps stage<br/>branch, commit, push"]
+    G --> H["Pull request<br/>human review"]
+\`\`\`
+
+1. **Inspect:** The agent reads the failing dbt run's error output and queries the live database catalog. It grounds its diagnosis in real schema state rather than in the error message alone.
+2. **Read:** The agent loads the failing \`.sql\` file from the local filesystem to understand what the model expects.
+3. **Write:** The agent rewrites the SQL to reconcile the mismatch (e.g., \`SELECT total_amount AS order_amount\`).
+4. **Test:** The agent runs \`dbt test\` against the change. A failure sends the agent back to Inspect; a pass moves the workflow forward.
+
+Once tests pass, the GitOps stage takes over: the agent creates an isolated branch, commits the verified fix, pushes it, and opens a Pull Request for human review.
+
+---
+
+## The Execution: A Sample Agent Session
+
+When the \`demo.py\` script runs, it resets the environment, generates data, runs dbt, sabotages the schema, and triggers the AI agent. The terminal output looks like this:
+
+\`\`\`text
+[5/6] Sabotaging schema ...
+      ALTER TABLE raw_orders RENAME COLUMN order_amount TO total_amount
+      dbt run ... FAIL: column "order_amount" does not exist
+
+[6/6] Invoking agent ...
+
+  [agent] The dbt error says column "order_amount" does not exist in
+           raw_orders. I will inspect the live schema to confirm what
+           columns exist now.
+
+  [tool]   inspect_schema("raw_orders")
+           -> id, customer_name, order_date, total_amount, order_status
+
+  [agent] The column was renamed from order_amount to total_amount
+           upstream. Downstream models expect order_amount, so I will
+           alias it back to keep the contract stable.
+
+  [tool]   write_model_file("stg_orders.sql",
+             "SELECT ..., total_amount AS order_amount, ...")
+
+  [tool]   run_dbt_tests()
+           -> PASS: all tests green
+
+  [agent] All tests pass. Creating branch
+           agent-fix/stg_orders-20250114-093112, committing the fix,
+           and pushing it for review.
+
+[done] Fix delivered via pull request.
+\`\`\`
+
+The agent converges on the minimal fix, verifies it empirically, and delivers it safely.
+
+---
+
+## Engineering Decisions
+
+**LangGraph for cyclical logic.** LangGraph lets the agent loop. If \`run_dbt_tests\` fails, the agent reads the new error, returns to the rewrite phase, and tries again until it converges on a working fix.
+
+**Idempotent infrastructure.** The demo script runs \`docker compose down -v\` to fully wipe the database volume on every execution. This guarantees zero state drift between runs, so the saboteur always breaks a known-clean schema and every demo run is reproducible.
+
+**Human-in-the-loop (HITL).** The agent never pushes directly to \`main\`. It commits to an isolated branch and opens a Pull Request instead. A human always reviews the agent's reasoning and diff before it can affect production data.
+
+**A real stack, not a simulation.** The agent's tools issue genuine dbt commands, real SQL queries, and real Git operations. Nothing about the failure or the fix is role-played. The schema is actually broken, and the tests actually pass at the end.
+
+  Thanks for stoping by.
+`,
   },
-
 
   
   {
