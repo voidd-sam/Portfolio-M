@@ -73,6 +73,8 @@ const OpenSourceSection = () => {
             </div>
           );
         })}
+      </div>
+      <div className="mt-6">
         <OpenSourceComingSoonCard />
       </div>
 
