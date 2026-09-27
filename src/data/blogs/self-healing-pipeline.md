@@ -376,4 +376,4 @@ Ideas for extending this project further:
   success rate
 - Support for additional warehouses beyond PostgreSQL (Snowflake, BigQuery)
 
-## Thanks for stoping by.
+Thanks for stoping by.
