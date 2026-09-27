@@ -453,16 +453,6 @@ This is a demonstration of the pattern, and it is honest about being one:
 - Every flagged anomaly triggers an LLM call, so investigation volume has a
   cost.
 
-## Roadmap
-
-- Pluggable detectors (autoencoders, online learning) behind the same
-  streaming interface
-- Richer feature engineering: sessionization, geo/IP velocity, device signals
-- Alert routing to Slack, email, and PagerDuty
-- A human feedback loop that sharpens the agent's triage over time
-- Multi-broker Kafka with replication for production-grade availability
-- Model drift monitoring with automated baseline retraining
-
 ## Contributing
 
 Pull requests are welcome. If you change the detector, the feature space, or
@@ -470,8 +460,6 @@ the agent's triage logic, include before-and-after examples of the forensic
 reports so reviewers can see the effect on classification quality.
 
 
-<div align="center">
 
-Thanks for stopping by <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png" alt="Cat" width="32" height="32" />
 
-</div>
+Thanks for stopping by.
