@@ -1,8 +1,7 @@
-```markdown
 ---
 title: "Building a Self-Healing Data Pipeline"
 description: "Analytics pipelines fail in boring, predictable ways. Here is how I built an autonomous AI agent that detects schema drift, rewrites broken SQL, runs dbt tests, and opens a pull request automatically."
-date: "2026-08-22"
+date: "2026-08-20"
 readTime: "12 min read"
 pinned: true
 tags: ["Data Engineering", "AI Agents", "LangGraph", "dbt", "Python"]
