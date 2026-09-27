@@ -9,7 +9,7 @@ const OpenSourceSection = () => {
   return (
     <section id="opensource" className="w-full space-y-6">
       <p className="text-2xl font-light tracking-tight sm:text-3xl">
-        Open Source
+        Contributions
       </p>
 
       <div className="relative flex flex-col">
