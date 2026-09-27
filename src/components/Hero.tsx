@@ -63,7 +63,7 @@ const Hero = () => {
 
         <motion.div variants={itemVariants} className="space-y-5 sm:space-y-6">
           <h1 className="max-w-full text-[1.7rem] font-normal tracking-tight leading-tight sm:text-[2.05rem] md:text-[2.15rem]">
-            Data Engineer -{" "}
+            Data Engineer/Analyst -{" "}
             <span className="text-[0.95em] font-light text-muted-foreground sm:text-[0.96em]">
               Yep, that sounds boring.
             </span>

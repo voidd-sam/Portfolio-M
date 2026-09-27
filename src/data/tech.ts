@@ -7,6 +7,7 @@ export interface TechItem {
 export const skills: TechItem[] = [
   { name: "Python", icon: "/tech/python.svg" },
   { name: "Lang Graph", icon: "/tech/langgraph.svg" },
+  { name: "Tableau", icon: "tech/tableau.svg" },
   { name: "Lang Chain", icon: "/tech/langchain.svg" },
   { name: "Apache Airflow", icon: "/tech/airflow.svg" },
   { name: "LLM", icon: "/tech/vllm.svg" },
