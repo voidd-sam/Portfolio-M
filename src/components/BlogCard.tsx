@@ -1,8 +1,8 @@
 import type { Blog } from "@/data/blog";
-import { ArrowUpRight, Clock } from "lucide-react";
+import { ArrowUpRight, Clock Pin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({ title, description, tags, date, readTime }: Blog) => {
+const BlogCard = ({ title, description, tags, date, readTime, pinned }: Blog) => {
   const navigate = useNavigate();
   const slug = `/blogs/${title.toLowerCase().replace(/\s+/g, "-")}`;
 
@@ -28,8 +28,10 @@ const BlogCard = ({ title, description, tags, date, readTime }: Blog) => {
         </div>
       </div>
 
-      <div className="flex flex-row items-start justify-between w-full gap-3 sm:gap-4 mt-1">
-        <span className="text-lg font-light text-foreground transition-all duration-200 line-clamp-2 sm:text-xl">
+       <div className="flex flex-row items-start justify-between w-full gap-3 sm:gap-4 mt-1">
+        <span className="flex items-center gap-2 text-lg font-light text-foreground transition-all duration-200 line-clamp-2 sm:text-xl">
+          
+          {pinned && <Pin size={16} className="text-blue-500 shrink-0" />}
           {title}
         </span>
         <ArrowUpRight className="w-5 h-5 shrink-0 text-muted-foreground group-hover:text-foreground transition-colors mt-0.5" />
