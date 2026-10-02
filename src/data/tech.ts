@@ -54,7 +54,9 @@ export const backendSkills: TechItem[] = [
 export const toolsSkills: TechItem[] = [
   { name: "Git", icon: "/tech/git.svg" },
   { name: "Arch", icon: "/tech/arch-linux.svg" },
-  { name: "Tableau", icon: "tech/tableau.svg" },
+  { name: "Tableau", icon: "/tech/tableau.svg" },
+  { name: "Power BI", icon: "/tech/power-bi" },
+
   {
     name: "GitHub",
     icon: "/social/github.svg",
