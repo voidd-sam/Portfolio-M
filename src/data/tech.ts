@@ -107,6 +107,7 @@ export const projectTech = {
   bash: { name: "Bash", icon: "/tech/bash.svg" },
   sql: { name: "SQL", icon: "/tech/sqllite.svg" },
   go: { name: "GO", icon: "/tech/go.svg",},
+  mistral: { name: "Mistral", icon: "/tech/mistral.svg" },
   numpy: { name: "Numpy", icon: "/tech/numpy.svg" },
   pandas: { name: "Pandas", icon: "/tech/pandas.svg" },
   matplotlib: { name: "Matplotlib", icon: "/tech/matplotlib.svg" },

@@ -29,7 +29,7 @@ export const projects: Project[] = [
       projectTech.dbt,
       projectTech.apacheairflow,
       projectTech.langgraph,
-      projectTech.llm,
+      projectTech.mistral,
       projectTech.docker,
     ],
     liveLink: "https://",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     ],
     techStack: [
       projectTech.python,
-      projectTech.llm,
+      projectTech.mistral,
       projectTech.fastapi,
       projectTech.numpy,
       projectTech.redis,
