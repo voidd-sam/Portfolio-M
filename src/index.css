@@ -229,12 +229,7 @@
   body {
     @apply bg-background text-foreground text-[15px] antialiased;
     letter-spacing: var(--tracking-normal);
-    background-color: #02040a;
-    background-image: url('/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+
   }
 
   .react-activity-calendar__tooltip {
