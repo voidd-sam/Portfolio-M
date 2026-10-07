@@ -72,13 +72,11 @@ export const projects: Project[] = [
       "An event driven streaming pipeline that scores live user behavior in milliseconds and dispatches an automated language model to investigate flagged anomalies.",
     about:
       "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
-    features: [
-      
-      "Real-Time Streaming: Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
-      "Unsupervised ML Detection: Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
-      "Automated Triage: When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
-      "Live SOC Dashboard: A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
-    
+     features: [
+      "**Real-Time Streaming:** Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
+      "**Unsupervised ML Detection:** Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
+      "**Automated Triage:** When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
+      "**Live SOC Dashboard:** A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
     ],
     techStack: [
       projectTech.python,
