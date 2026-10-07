@@ -72,11 +72,13 @@ export const projects: Project[] = [
       "An event driven streaming pipeline that scores live user behavior in milliseconds and dispatches an automated language model to investigate flagged anomalies.",
     about:
       "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
-     features: [
-      "**Real-Time Streaming:** Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
-      "**Unsupervised ML Detection:** Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
-      "**Automated Triage:** When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
-      "**Live SOC Dashboard:** A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
+    features: [
+      
+      "Real-Time Streaming: Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
+      "Unsupervised ML Detection: Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
+      "Automated Triage: When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
+      "Live SOC Dashboard: A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
+    
     ],
     techStack: [
       projectTech.python,
@@ -118,19 +120,16 @@ export const projects: Project[] = [
     name: "Glass Minimal Hyprland",
     imgSrc: "/projects/gm-hyprland.png",
     description:
-      "A full hyprland desktop setup.",
+      "A complete hyprland desktop configuration featuring a unified color palette, glassmorphism effects, and pre-configured core utilities.",
     about:
-      "Glass is a complete, ready-to-rice Hyprland configuration. It combines subtle glassmorphism, smooth animations, and a minimal aesthetic everything you need for a distraction-free yet beautiful workflow, straight out of the box.",
-    features: [
-      "Minimal & lightweight — no bloat, only what matters",
-      "Glassmorphism everywhere — blurred bars, translucent panels",
-      "Due date picker with date-grouped task views",
-      "Coherent color palette across every single app",
-      "Smooth animations & transitions — buttery window movement",
-      "Dark and light theme toggle with persistent preference",
-      "Beautiful btop skin included",
-      "One-command install script — Arch-based ready", 
-    ],
+          "This project is a modular dotfiles repository for the Hyprland Wayland compositor. It provides a complete desktop environment configuration that can be copied directly into a user's .config directory. It bundles pre-configured components—including Waybar, Kitty, Rofi, and Dunst—unified under a consistent color palette and glassmorphism aesthetic. The setup is designed for Arch-based systems and includes an automated install script to immediately apply the environment.",
+        features: [
+      "Unified Aesthetic: Applies a consistent color palette and glassmorphism effects, such as blurred bars and translucent panels, across all desktop components.",
+      "Pre-configured Utilities: Bundles ready-to-use setups for Waybar, Kitty, Rofi, Dunst, Hyprlock, and a custom btop system monitor theme.",
+      "Modular Structure: Configurations are organized into logical directories and heavily commented, making it easy to tweak keybinds, animations, and bar modules.",
+      "One-Command Install: Includes an automated setup script tailored for Arch-based Linux distributions to apply the entire configuration in one step.",
+    ],    
+
     techStack: [
       projectTech.lua,
       projectTech.toml,
