@@ -17,7 +17,7 @@ export const projects: Project[] = [
     name: "Self-healing-pipeline",
     imgSrc: "/projects/Self-healing-pipeline.png",
     description:
-      "A self healing pipeline which heals on its own on every anomy ..find it analyze it fix it ....push it ",
+      "An agent that detects, diagnoses, and fixes broken dbt pipelines, then opens a Pull Request for review.",
     about:
       "This project is an agent that automatically fixes broken data pipelines caused by upstream schema changes. When a pipeline fails, the agent inspects the live database, reads the broken SQL model, and rewrites the code to reconcile the mismatch. It then runs real dbt tests in a loop until they pass, empirically verifying the fix before stopping. Finally, it commits the working code to an isolated branch and opens a Pull Request for a human to review.",
     features: [
