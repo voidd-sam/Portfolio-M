@@ -19,7 +19,10 @@ export const projects: Project[] = [
     description:
       "A self healing pipeline which heals on its own on every anomy ..find it analyze it fix it ....push it ",
     about:
-      "Data pipelines are highly fragile. A common scenario in enterprise data engineering is —when an upstream API or database alters its structure without coordinating with downstream consumers. When this happens, Extract, Load, Transform (ELT) pipelines fail, requiring manual intervention from data engineers to read error logs, trace the schema change, rewrite SQL, and open a Pull Request. This manual toil can take hours, during which dashboards and downstream models are broken.",
+      "This project is an agent that automatically fixes broken data pipelines caused by upstream schema changes
+       when a pipeline fails, the agent inspects the live database, reads the broken SQL model, and rewrites the code to reconcile the mismatch
+       It then runs real dbt tests in a loop until they pass, empirically verifying the fix before stopping
+       finally it commits the working code to an isolated branch and opens a Pull Request for a human to review.",
     features: [
       "Instead of relying on manual intervention, this system employs an autonomous AI agent. When the dbt pipeline fails, the agent is triggered. It enters a cyclical reasoning loop (ReAct) where it uses custom Python tools to interact directly with PostgreSQL, the local file system, and the command line. It maps the new database schema to the existing SQL expectations, writes the fix, validates it, and handles the Git operations autonomously.",
     ],
@@ -33,7 +36,7 @@ export const projects: Project[] = [
       projectTech.docker,
     ],
     liveLink: "https://",
-    githubLink: "https://github.com/sam-k99/self-healing-pipeline",
+    githubLink: "https://github.com/voidd-sam/self-healing-pipeline",
   },
   {
     name: "Llm-gateway",
@@ -58,8 +61,8 @@ export const projects: Project[] = [
       projectTech.graphana,
       projectTech.docker,
     ],
-    liveLink: "https://github.com/sam-k99/llm-gateway",
-    githubLink: "https://github.com/sam-k99/llm-gateway",
+    liveLink: "https://github.com/voidd-sam/llm-gateway",
+    githubLink: "https://github.com/voidd-sam/llm-gateway",
   },
   {
     name: "Anomaly Engine",
@@ -85,8 +88,8 @@ export const projects: Project[] = [
       projectTech.fastapi,
       projectTech.docker,
     ],
-    liveLink: "https://github.com/sam-k99/anomaly-engine",
-    githubLink: "https://github.com/sam-k99/anomaly-engine",
+    liveLink: "https://github.com/voidd-sam/anomaly-engine",
+    githubLink: "https://github.com/voidd-sam/anomaly-engine",
   },
   {
     name: "Ly-ric",
@@ -109,8 +112,8 @@ export const projects: Project[] = [
       projectTech.ytmusic,
       
     ],
-    liveLink: "https://github.com/sam-k99/lyric",
-    githubLink: "https://github.com/sam-k99/ly-ric",
+    liveLink: "https://github.com/voidd-sam/lyric",
+    githubLink: "https://github.com/voidd-sam/ly-ric",
   },
   {
     name: "Glass Minimal Hyprland",
@@ -134,8 +137,8 @@ export const projects: Project[] = [
       projectTech.toml,
       projectTech.hyprland,
       ],
-    liveLink: "https://github.com/sam-k99/glass-minimal-hyprland",
-    githubLink: "https://github.com/sam-k99/glass-minimal-hyprland",
+    liveLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
+    githubLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
   },
 ];
 
