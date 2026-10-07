@@ -14,7 +14,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Self-healing-pipeline",
+    name: "Self-Healing Pipeline",
     imgSrc: "/projects/Self-healing-pipeline.png",
     description:
       "An agent that detects, diagnoses, and fixes broken dbt pipelines, then opens a Pull Request for review.",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/voidd-sam/self-healing-pipeline",
   },
   {
-    name: "Llm-gateway",
+    name: "Llm Gateway",
     imgSrc: "/projects/llm-gateway.png",
     description:
       "High-throughput API middleware for LLMs with dynamic routing, semantic caching, and security guardrails",
