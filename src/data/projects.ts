@@ -14,7 +14,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Self-Healing Pipeline",
+    name: "Self Healing Pipeline",
     imgSrc: "/projects/Self-healing-pipeline.png",
     description:
       "An agent that detects, diagnoses, and fixes broken dbt pipelines, then opens a Pull Request for review.",
@@ -43,9 +43,9 @@ export const projects: Project[] = [
     name: "Llm Gateway",
     imgSrc: "/projects/llm-gateway.png",
     description:
-      "High-throughput API middleware for LLMs with dynamic routing, semantic caching, and security guardrails",
+      "API gateway middleware that routes requests by complexity, serves duplicates from a semantic cache, and redacts PII before transmission.",
     about:
-      "The LLM Gateway is a high-throughput, production-grade API middleware designed to sit between client applications and Large Language Model (LLM) providers.",
+      "his project is API middleware that sits between client applications and external model providers. It intercepts requests to redact personally identifiable information and block injection attacks. It then checks a semantic cache; if a similar vector match is found, it returns the cached response instantly without calling the provider. If no match exists, it classifies the prompt's complexity and routes it to the appropriate model to optimize cost and speed. All token usage, cache hits, and latency are tracked in real-time via Prometheus and Grafana.",
     features: [
       "Dynamic Model Routing: Classifies prompt complexity and routes simple queries to cheap/fast models (open-mistral-7b), reserving expensive models (mistral-large-latest) for complex reasoning tasks.",
       "Semantic Caching: Utilizes Redis and vector embeddings to cache responses. If a similar prompt (cosine similarity > 85%) is received, the gateway returns the cached response instantly, bypassing the LLM entirely.",
