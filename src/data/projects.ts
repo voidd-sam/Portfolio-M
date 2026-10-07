@@ -19,12 +19,13 @@ export const projects: Project[] = [
     description:
       "A self healing pipeline which heals on its own on every anomy ..find it analyze it fix it ....push it ",
     about:
-      "This project is an agent that automatically fixes broken data pipelines caused by upstream schema changes
-       when a pipeline fails, the agent inspects the live database, reads the broken SQL model, and rewrites the code to reconcile the mismatch
-       It then runs real dbt tests in a loop until they pass, empirically verifying the fix before stopping
-       finally it commits the working code to an isolated branch and opens a Pull Request for a human to review.",
+      "This project is an agent that automatically fixes broken data pipelines caused by upstream schema changes. When a pipeline fails, the agent inspects the live database, reads the broken SQL model, and rewrites the code to reconcile the mismatch. It then runs real dbt tests in a loop until they pass, empirically verifying the fix before stopping. Finally, it commits the working code to an isolated branch and opens a Pull Request for a human to review.",
     features: [
-      "Instead of relying on manual intervention, this system employs an autonomous AI agent. When the dbt pipeline fails, the agent is triggered. It enters a cyclical reasoning loop (ReAct) where it uses custom Python tools to interact directly with PostgreSQL, the local file system, and the command line. It maps the new database schema to the existing SQL expectations, writes the fix, validates it, and handles the Git operations autonomously.",
+      "The Self-Healing Loop: The agent reasons in a cycle: it inspects the live database, reads the broken SQL, rewrites the code, and runs dbt tests until they pass.",
+      "Human-in-the-Loop GitOps: Agent never pushes directly to production. It commits the fix to an isolated Git branch and opens a PR, keeping humans in control. ",
+      "Bounded & Safe by Design: Agent doesn't run free-form shell commands. It operates through strict, auditable Python functions—it can edit model files and push branches, but cannot alter the core database schema.",
+      "One-Click Reproducible Demo: A single script (demo.py) spins up the environment, generates mock data, breaks the schema on purpose, and triggers the AI to fix it—resetting perfectly every time.",
+      "Swappable Brains: Connects to any OpenAI-compatible API (OpenAI, Groq, Zhipu AI) without needing to rewrite the tooling code.",
     ],
     techStack: [
       projectTech.python,
