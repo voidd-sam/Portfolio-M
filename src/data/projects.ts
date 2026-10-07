@@ -87,7 +87,7 @@ export const projects: Project[] = [
       projectTech.langchain,
       projectTech.groq,
       projectTech.fastapi,
-      projectTech.websocket
+      projectTech.websocket,
       projectTech.docker,
     ],
     liveLink: "https://github.com/voidd-sam/anomaly-engine",
