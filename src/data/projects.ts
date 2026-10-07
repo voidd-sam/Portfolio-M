@@ -45,7 +45,7 @@ export const projects: Project[] = [
     description:
       "API gateway middleware that routes requests by complexity, serves duplicates from a semantic cache, and redacts PII before transmission.",
     about:
-      "his project is API middleware that sits between client applications and external model providers. It intercepts requests to redact personally identifiable information and block injection attacks. It then checks a semantic cache; if a similar vector match is found, it returns the cached response instantly without calling the provider. If no match exists, it classifies the prompt's complexity and routes it to the appropriate model to optimize cost and speed. All token usage, cache hits, and latency are tracked in real-time via Prometheus and Grafana.",
+      "This project is API middleware that sits between client applications and external model providers. It intercepts requests to redact personally identifiable information and block injection attacks. It then checks a semantic cache; if a similar vector match is found, it returns the cached response instantly without calling the provider. If no match exists, it classifies the prompt's complexity and routes it to the appropriate model to optimize cost and speed. All token usage, cache hits, and latency are tracked in real-time via Prometheus and Grafana.",
     features: [
       "Dynamic Model Routing: Classifies prompt complexity and routes simple queries to cheap/fast models (open-mistral-7b), reserving expensive models (mistral-large-latest) for complex reasoning tasks.",
       "Semantic Caching: Utilizes Redis and vector embeddings to cache responses. If a similar prompt (cosine similarity > 85%) is received, the gateway returns the cached response instantly, bypassing the LLM entirely.",
@@ -69,16 +69,16 @@ export const projects: Project[] = [
     name: "Anomaly Engine",
     imgSrc: "/projects/anomaly-engine.png",
     description:
-      "Real-time streaming pipeline using Kafka, Isolation Forest ML, and LLM Agents for autonomous bot detection and triage",
+      "An event driven streaming pipeline that scores live user behavior in milliseconds and dispatches an automated language model to investigate flagged anomalies.",
     about:
-      "The Autonomous Anomaly Engine is an event-driven streaming pipeline that monitors live user behavior to detect fraud, bots, and system glitches in milliseconds.",
+      "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
     features: [
-      "Real-Time Streaming: Simulates 1,000+ live user events per second using Apache Kafka (KRaft mode).",
-      "Unsupervised ML Detection: Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled data.",
-      "Autonomous AI Investigator: When an anomaly is flagged, an LLM Agent (Groq/Llama 3.1) is triggered. It analyzes the payload, determines the threat level (Bot vs. Slow Human), and generates a structured JSON forensic report.",
-      "Live SOC Dashboard: A dark-themed, WebSocket-powered FastAPI frontend where AI forensic reports pop up in real-time.",
-      "Fully Containerized: The entire stack (Kafka, ML Model, AI Agent, API) spins up with a single docker-compose up command.",
-
+      
+      "Real-Time Streaming: Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
+      "Unsupervised ML Detection: Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
+      "Automated Triage: When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
+      "Live SOC Dashboard: A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
+    
     ],
     techStack: [
       projectTech.python,
