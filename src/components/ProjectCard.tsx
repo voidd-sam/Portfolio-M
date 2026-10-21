@@ -27,7 +27,10 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
       </div>
 
       <div className="px-2 mt-4">
-        <div className="text-xl font-light tracking-tight">{name}</div>
+        <div className="flex items-center gap-2 text-xl font-light tracking-tight">
+          {pinned && <Pin size={16} className="text-blue-500 shrink-0" />}
+          {name}
+        </div>
         <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{description}</p>
       </div>
 
