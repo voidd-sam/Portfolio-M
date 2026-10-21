@@ -6,15 +6,11 @@ import { ChevronRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const ProjectSection = () => {
-  // Find the pinned project (Self-Healing Pipeline)
   const pinnedProject = projects.find((p) => p.pinned) || projects[0];
-  
-  // Get the rest of the projects to slide through
   const otherProjects = projects.filter((p) => p.name !== pinnedProject.name);
   
   const [offset, setOffset] = useState(0);
 
-  // Logic to move 2 projects at a time
   const handleNext = () => {
     setOffset((prev) => (prev + 2 >= otherProjects.length ? prev : prev + 2));
   };
@@ -22,9 +18,6 @@ const ProjectSection = () => {
   const handlePrev = () => {
     setOffset((prev) => (prev - 2 < 0 ? 0 : prev - 2));
   };
-
-  // Get the 2 projects to show right now
-  const visibleProjects = otherProjects.slice(offset, offset + 2);
 
   return (
     <section id="projects" className="w-full space-y-6">
@@ -36,16 +29,22 @@ const ProjectSection = () => {
 
       {/* 1. THE BIG PINNED PROJECT (Landscape) */}
       {pinnedProject && (
-        <div className="w-full">
+        <div className="w-full group/projects">
           <ProjectCard key={pinnedProject.name} {...pinnedProject} />
         </div>
       )}
 
-      {/* 2. THE SLIDING 2 RECENT PROJECTS */}
+      {/* 2. THE SLIDING RECENT PROJECTS (Buttery Smooth) */}
       <div className="group/projects overflow-hidden">
-        <div className="flex gap-6 sm:gap-8 transition-transform duration-500 ease-out">
-          {visibleProjects.map((project) => (
-            <div key={project.name} className="w-full sm:w-[calc(50%-1rem)] shrink-0">
+        <div 
+          className="flex gap-6 sm:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ transform: `translateX(calc(-${offset} * (100% + 2rem)))` }}
+        >
+          {otherProjects.map((project) => (
+            <div 
+              key={project.name} 
+              className="w-full sm:w-[calc(50%-1rem)] shrink-0"
+            >
               <ProjectCard {...project} />
             </div>
           ))}
@@ -56,6 +55,7 @@ const ProjectSection = () => {
       <div className="flex items-center justify-between pt-6">
         {/* Left Arrow */}
         <Button
+          variant="secondary"
           size="icon"
           onClick={handlePrev}
           disabled={offset === 0}
@@ -74,6 +74,7 @@ const ProjectSection = () => {
 
         {/* Right Arrow */}
         <Button
+          variant="secondary"
           size="icon"
           onClick={handleNext}
           disabled={offset + 2 >= otherProjects.length}
