@@ -37,8 +37,9 @@ const ProjectSection = () => {
       {/* 2. THE SLIDING RECENT PROJECTS (Buttery Smooth) */}
       <div className="group/projects overflow-hidden">
         <div 
-          className="flex gap-6 sm:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          style={{ transform: `translateX(calc(-${offset} * (100% + 2rem)))` }}
+          className="flex gap-6 sm:gap-8 transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          // Math fix: Slides exactly 1 step (which is 2 projects) at a time
+          style={{ transform: `translateX(calc(-${offset * 100}% / 2 - ${offset * 0.75}rem))` }}
         >
           {otherProjects.map((project) => (
             <div 
