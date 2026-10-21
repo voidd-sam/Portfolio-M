@@ -1,10 +1,11 @@
 import { LuGithub } from "react-icons/lu";
 import { BiLink } from "react-icons/bi";
+import { Pin } from "lucide-react";
 import TechIcon from "./helpers/TechIcon";
 import type { Project } from "@/data/projects";
 import { useNavigate } from "react-router-dom";
 
-const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLink }: Project) => {
+const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLink,pinned }: Project) => {
   const navigate = useNavigate();
   const slug = `/projects/${name.toLowerCase().replace(/\s+/g, "-")}`;
 
