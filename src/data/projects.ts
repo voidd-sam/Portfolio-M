@@ -11,6 +11,7 @@ export interface Project {
   about: string;
   features: string[];
   pinned?: boolean;
+  keyFeatures?: string[];
 }
 
 export const projects: Project[] = [
@@ -18,6 +19,12 @@ export const projects: Project[] = [
     name: "Self Healing Pipeline",
     imgSrc: "/projects/Self-healing-pipeline.png",
     pinned: true,
+    keyFeatures: [
+      "Detects broken dbt models",
+      "Agent rewrites SQL",
+      "Runs tests to verify fix",
+      "Opens automated Pull Request"
+    ],
     description:
       "An agent that detects, diagnoses, and fixes broken dbt pipelines, then opens a Pull Request for review.",
     about:
