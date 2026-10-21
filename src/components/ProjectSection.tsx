@@ -46,7 +46,8 @@ const ProjectSection = () => {
 
             <div className="w-full h-px bg-border mt-2 mb-1" />
 
-            <div className="flex flex-col gap-3 px-2 pb-2 mt-2">
+            {/* Added justify-center and flex-1 to fill the height perfectly */}
+            <div className="flex flex-col gap-4 px-2 pb-2 mt-2 flex-1 justify-center">
               {pinnedProject.keyFeatures?.map((feature, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
@@ -55,7 +56,6 @@ const ProjectSection = () => {
               ))}
             </div>
           </div>
-        </div>
       )}
 
       {/* 3. THE 3 CONTROL BUTTONS */}
