@@ -46,7 +46,6 @@ const ProjectSection = () => {
 
             <div className="w-full h-px bg-border mt-2 mb-1" />
 
-            {/* Added justify-center and flex-1 to fill the height perfectly */}
             <div className="flex flex-col gap-4 px-2 pb-2 mt-2 flex-1 justify-center">
               {pinnedProject.keyFeatures?.map((feature, idx) => (
                 <div key={idx} className="flex items-start gap-3">
@@ -56,7 +55,25 @@ const ProjectSection = () => {
               ))}
             </div>
           </div>
+        </div>
       )}
+
+      {/* 2. THE SLIDING RECENT PROJECTS (Buttery Smooth) */}
+      <div className="group/projects overflow-hidden">
+        <div 
+          className="flex gap-6 sm:gap-8 transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ transform: `translateX(calc(-${offset * 100}% / 2 - ${offset * 0.75}rem))` }}
+        >
+          {otherProjects.map((project) => (
+            <div 
+              key={project.name} 
+              className="w-full sm:w-[calc(50%-1rem)] shrink-0"
+            >
+              <ProjectCard {...project} />
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* 3. THE 3 CONTROL BUTTONS */}
       <div className="flex items-center justify-between pt-6">
