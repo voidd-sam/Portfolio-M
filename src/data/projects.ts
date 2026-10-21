@@ -10,6 +10,7 @@ export interface Project {
   githubLink: string;
   about: string;
   features: string[];
+  pinned?: boolean;
 }
 
 export const projects: Project[] = [
