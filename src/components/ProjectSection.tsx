@@ -42,7 +42,7 @@ const ProjectSection = () => {
       )}
 
       {/* 2. THE SLIDING 2 RECENT PROJECTS */}
-      <div className="overflow-hidden">
+      <div className="group/projects overflow-hidden">
         <div className="flex gap-6 sm:gap-8 transition-transform duration-500 ease-out">
           {visibleProjects.map((project) => (
             <div key={project.name} className="w-full sm:w-[calc(50%-1rem)] shrink-0">
