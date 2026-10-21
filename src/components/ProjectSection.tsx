@@ -56,7 +56,7 @@ const ProjectSection = () => {
       <div className="flex items-center justify-between pt-6">
         {/* Left Arrow */}
         <Button
-          variant="outline"
+          variant="secondary"
           size="icon"
           onClick={handlePrev}
           disabled={offset === 0}
@@ -75,7 +75,7 @@ const ProjectSection = () => {
 
         {/* Right Arrow */}
         <Button
-          variant="outline"
+          variant="secondary"
           size="icon"
           onClick={handleNext}
           disabled={offset + 2 >= otherProjects.length}
