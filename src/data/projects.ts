@@ -16,6 +16,7 @@ export const projects: Project[] = [
   {
     name: "Self Healing Pipeline",
     imgSrc: "/projects/Self-healing-pipeline.png",
+    pinned: true,
     description:
       "An agent that detects, diagnoses, and fixes broken dbt pipelines, then opens a Pull Request for review.",
     about:
