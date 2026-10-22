@@ -41,11 +41,12 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
           <p className="mt-1 text-sm text-muted-foreground line-clamp-3">{description}</p>
 
           {keyFeatures && keyFeatures.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-4">
-              {keyFeatures.map((feature) => (
-                <span key={feature} className="text-[12px] text-muted-foreground bg-muted/50 px-1.5 py-0.5 rounded-sm border border-border/50">
-                  {feature}
-                </span>
+            <div className="flex flex-col gap-2 mt-4">
+              {keyFeatures.map((feature, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
+                  <span className="text-sm font-light text-muted-foreground">{feature}</span>
+                </div>
               ))}
             </div>
           )}
