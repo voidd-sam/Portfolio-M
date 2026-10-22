@@ -57,7 +57,7 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
             ))}
           </div>
 
-          <div className="w-full h-px bg-border mt-auto mb-1" />
+          <div className="w-full h-px bg-border mt-2 mb-1" />
 
           <div className="flex items-center justify-between mt-2">
             <a
