@@ -20,15 +20,15 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
         className="group flex flex-col md:flex-row gap-2 bg-card border border-dashed border-border/80 p-1.5 rounded-xl w-full overflow-hidden hover:bg-muted/20 transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:border-border group-hover/projects:opacity-50 hover:!opacity-100"
       >
         {/* Left Side: Image + Featured Badge */}
-        <div className="relative group/image rounded-lg overflow-hidden border border-border/80 bg-muted/30 w-full md:w-[35%] shrink-0">
-          <span className="absolute top-2 left-2 z-10 text-[10px] tracking-widest uppercase text-foreground/40 border border-foreground/20 px-1.5 py-0.5 rounded-sm bg-background/50 backdrop-blur-sm">
+        <div className="relative group/image rounded-lg overflow-hidden border border-border/80 bg-card w-full md:w-[45%] shrink-0 aspect-video md:aspect-auto">
+          <span className="absolute top-2 left-2 z-10 text-[10px] tracking-widest uppercase text-foreground/60 border border-foreground/20 px-1.5 py-0.5 rounded-sm bg-background/50 backdrop-blur-sm">
             Featured
           </span>
           <img
             src={imgSrc}
             alt={name}
             loading="lazy"
-            className="rounded-lg w-full h-full object-contain transition-all duration-500 ease-out group-hover/image:blur-xs"
+            className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover/image:blur-xs"
           />
         </div>
 
