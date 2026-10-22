@@ -28,7 +28,7 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
             src={imgSrc}
             alt={name}
             loading="lazy"
-            className="rounded-lg w-full h-full object-cover aspect-video md:aspect-auto transition-all duration-500 ease-out group-hover/image:blur-xs"
+            className="rounded-lg w-full h-full object-contain transition-all duration-500 ease-out group-hover/image:blur-xs"
           />
         </div>
 
