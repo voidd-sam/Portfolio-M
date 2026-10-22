@@ -93,7 +93,7 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
       tabIndex={0}
       onClick={() => navigate(slug)}
       onKeyDown={(e) => e.key === "Enter" && navigate(slug)}
-      className="group flex flex-col gap-2 bg-card border border-dashed border-border/80 p-1.5 rounded-xl w-full overflow-hidden hover:bg-muted/20 transition-all duration-200 cursor-pointer"
+      className="group flex flex-col gap-2 bg-card border border-dashed border-border/80 p-1.5 rounded-xl w-full overflow-hidden hover:bg-muted/20 transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:border-border group-hover/projects:opacity-50 hover:!opacity-100"
     >
       <div className="group/image rounded-lg overflow-hidden border border-border/80 bg-muted/30">
         <img
