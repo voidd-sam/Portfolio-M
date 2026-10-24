@@ -97,7 +97,7 @@ const Hero = () => {
               </Button>
             </a>
             <a
-              href="/Sameer-DA.pdf"
+              href="/Sameer-CV-DE.pdf"
               target="_blank"
               rel="noreferrer"
             >
