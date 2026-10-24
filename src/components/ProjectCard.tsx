@@ -74,6 +74,7 @@ const ProjectCard = ({
             ))}
           </div>
 
+          <div className="w-full h-px bg-border mt-3 mb-1" />
 
           <div className="flex items-center justify-between mt-1">
             <a
