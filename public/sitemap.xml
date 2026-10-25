@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sameer-khan.xyz/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://sameer-khan.xyz/projects</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sameer-khan.xyz/blogs</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sameer-khan.xyz/opensource</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sameer-khan.xyz/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ADD YOUR INDIVIDUAL BLOG URLS HERE -->
+  <url>
+    <loc>https://sameer-khan.xyz/blogs/building-a-self-healing-data-pipeline</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://sameer-khan.xyz/blogs/documentation---llm-gateway</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.64</priority>
+  </url>
+
+
+  <url>
+    <loc>https://sameer-khan.xyz/blogs/anomaly-engine-documentation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.64</priority>
+  </url>
+
+  <url>
+    <loc>https://sameer-khan.xyz/blogs/the-4-best-datasets-to-practice-tableau-as-beginner-(and-where-to-find-them)</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.64</priority>
+  </url>
+
+
+  <url>
+    <loc>https://sameer-khan.xyz/blogs/from-messy-csv-to-boardroom-insights:-a-complete-e-commerce-analytics-case-study</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.64</priority>
+  </url>
+
+
+
+
+  <url>
+    <loc>https://sameer-khan.xyz/blogs/enable-github-2fa-with-keepass:-a-privacy-focused-alternative</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.64</priority>
+  </url>
+
+
+</urlset>
+
+
+
+
