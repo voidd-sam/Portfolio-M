@@ -23,7 +23,7 @@ export const projects: Project[] = [
       "Detects broken dbt models",
       "Agent rewrites SQL",
       "Runs tests to verify fix",
-      "Opens automated Pull Request"
+      "Opens automated Pull Request",
     ],
     description:
       "An agent that detects, diagnoses, and fixes broken dbt pipelines, then opens a Pull Request for review.",
@@ -82,12 +82,10 @@ export const projects: Project[] = [
     about:
       "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
     features: [
-      
       "Real-Time Streaming: Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
       "Unsupervised ML Detection: Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
       "Automated Triage: When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
       "Live SOC Dashboard: A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
-    
     ],
     techStack: [
       projectTech.python,
@@ -105,8 +103,7 @@ export const projects: Project[] = [
   {
     name: "Ly-ric",
     imgSrc: "/projects/ly-ric.png",
-    description:
-      "A simple terminal (TUI) music player ",
+    description: "A simple terminal (TUI) music player ",
     about:
       "A terminal-based YouTube Music player with synced lyrics, radio-style autoplay and vim-style controls. Built with Python, mpv and YouTube Music's recommendation engine.",
     features: [
@@ -117,12 +114,7 @@ export const projects: Project[] = [
       "Next / previous / replay / seek / pause controls",
       "Full-screen terminal UI",
     ],
-    techStack: [
-      projectTech.python,
-      projectTech.mpv,
-      projectTech.ytmusic,
-      
-    ],
+    techStack: [projectTech.python, projectTech.mpv, projectTech.ytmusic],
     liveLink: "https://github.com/voidd-sam/lyric",
     githubLink: "https://github.com/voidd-sam/ly-ric",
   },
@@ -132,51 +124,42 @@ export const projects: Project[] = [
     description:
       "A complete hyprland desktop configuration featuring a unified color palette, glassmorphism effects, and pre-configured core utilities.",
     about:
-          "This project is a modular dotfiles repository for the Hyprland Wayland compositor. It provides a complete desktop environment configuration that can be copied directly into a user's .config directory. It bundles pre-configured components—including Waybar, Kitty, Rofi, and Dunst—unified under a consistent color palette and glassmorphism aesthetic. The setup is designed for Arch-based systems and includes an automated install script to immediately apply the environment.",
-        features: [
+      "This project is a modular dotfiles repository for the Hyprland Wayland compositor. It provides a complete desktop environment configuration that can be copied directly into a user's .config directory. It bundles pre-configured components—including Waybar, Kitty, Rofi, and Dunst—unified under a consistent color palette and glassmorphism aesthetic. The setup is designed for Arch-based systems and includes an automated install script to immediately apply the environment.",
+    features: [
       "Unified Aesthetic: Applies a consistent color palette and glassmorphism effects, such as blurred bars and translucent panels, across all desktop components.",
       "Pre-configured Utilities: Bundles ready-to-use setups for Waybar, Kitty, Rofi, Dunst, Hyprlock, and a custom btop system monitor theme.",
       "Modular Structure: Configurations are organized into logical directories and heavily commented, making it easy to tweak keybinds, animations, and bar modules.",
       "One-Command Install: Includes an automated setup script tailored for Arch-based Linux distributions to apply the entire configuration in one step.",
-    ],    
+    ],
 
-    techStack: [
-      projectTech.lua,
-      projectTech.toml,
-      projectTech.hyprland,
-      ],
+    techStack: [projectTech.lua, projectTech.toml, projectTech.hyprland],
     liveLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
     githubLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
   },
-  {
+    {
     name: "wtree",
     imgSrc: "/projects/wtree.png",
     description:
-      "A rust based tree file stucture for terminal with zero dependency and it looks cool on terminal",
+      "A Rust-based tree viewer for the terminal with zero dependencies, fast, colorful, and easy to read.",
     about:
-      "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
+      "wtree is a small, fast alternative to the classic tree command, written in Rust with no external crates. It walks a directory and prints it as a colored tree, streaming the output while it scans. It uses the kernel's d_type, so no stat call is needed per entry. Dotfiles and common development folders like node_modules and target are skipped by default, and the output stays clean when piped. The whole program is a handful of source files and compiles to a stripped release binary of about 332 KB.",
     features: [
-      
-      "Real-Time Streaming: Simulates 1,000+ live user events per second using Apache Kafka in KRaft mode, removing the need for Zookeeper.",
-      "Unsupervised ML Detection: Uses scikit-learn's Isolation Forest to profile user behavior and assign real-time anomaly scores without labeled training data.",
-      "Automated Triage: When an anomaly is flagged, a language model analyzes the payload, distinguishes between true threats (e.g., bots) and false positives (e.g., slow humans), and generates a structured JSON report.",
-      "Live SOC Dashboard: A dark-themed, WebSocket-powered FastAPI frontend that displays forensic reports in real time as events are scored.",
-    
+      "Zero Dependencies: Built with no external crates, including a hand-written argument parser instead of clap, which keeps the project tiny and the release build around 3 seconds.",
+      "Fast Streaming Output: Prints entries while walking the directory and uses d_type to avoid a stat call per entry, so a tree of about 200 files prints in roughly 1 ms.",
+      "Colored, Readable Tree: Directories are bold blue, symlinks are cyan with their -> target, and connectors are dim gray. A summary footer shows the directory and file counts.",
+      "Smart Defaults: Hides dotfiles and dev directories (node_modules, target, .git, dist, build and more) unless you pass --all, and limits depth with --depth.",
+      "Pipe-Friendly and Robust: Drops color when piped, honors NO_COLOR and CLICOLOR_FORCE, exits cleanly on broken pipes like wtree | head, and silently skips unreadable subdirectories.",
     ],
     techStack: [
       projectTech.rust,
       projectTech.toml,
-      projectTech.scikitlearn,
-      projectTech.langchain,
-      projectTech.groq,
-      projectTech.fastapi,
-      projectTech.websocket,
-      projectTech.docker,
+      projectTech.linux,
+      projectTech.git,
     ],
     liveLink: "https://github.com/voidd-sam/wtree",
     githubLink: "https://github.com/voidd-sam/wtree",
   },
-
-
+    liveLink: "https://github.com/voidd-sam/wtree",
+    githubLink: "https://github.com/voidd-sam/wtree",
+  },
 ];
-
