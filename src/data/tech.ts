@@ -85,7 +85,7 @@ export const skillRows: { direction: "left" | "right"; category: string; items: 
 ];
 
 export const projectTech = {
-  rust: { name: "Rust", icon: "/tech/rust.svg" },
+  rust: { name: "Rust", icon: "/tech/rust_1.svg" },
   react: { name: "React", icon: "/tech/react.svg" },
   javascript: { name: "JavaScript", icon: "/tech/js.svg" },
   typescript: { name: "TypeScript", icon: "/tech/typescript.svg" },
