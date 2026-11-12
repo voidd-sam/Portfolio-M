@@ -140,7 +140,7 @@ export const projects: Project[] = [
     name: "wtree",
     imgSrc: "/projects/wtree.png",
     description:
-      "A rust based tree file stucture for terminal with zero dependency and it looks cool on terminal",
+      "wtree is a small, fast alternative to the classic tree command, written in Rust with no external crates. It walks a directory and prints it as a colored tree, streaming the output while it scans. It uses the kernel's d_type, so no stat call is needed per entry. Dotfiles and common development folders like node_modules and target are skipped by default, and the output stays clean when piped. The whole program is a handful of source files and compiles to a stripped release binary of about 332 KB.",
     about:
       "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
     features: [
