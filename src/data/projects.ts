@@ -152,7 +152,7 @@ export const projects: Project[] = [
     name: "wtree",
     imgSrc: "/projects/wtree.png",
     description:
-      "An event driven streaming pipeline that scores live user behavior in milliseconds and dispatches an automated language model to investigate flagged anomalies.",
+      "A rust based tree file stucture for terminal with zero dependency and looks cool",
     about:
       "This project is a streaming pipeline that monitors live user behavior to detect anomaly and system glitches. It ingests clickstream data via Apache Kafka and scores it using an unsupervised machine learning model (Isolation Forest) in real time. When an anomaly is flagged, an automated language model is triggered to analyze the payload, determine the threat level, and generate a structured forensic report. The entire stack runs locally in Docker and streams results to a WebSocket-powered dashboard.",
     features: [
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     ],
     techStack: [
       projectTech.rust,
-      projectTech.apachekafka,
+      projectTech.toml,
       projectTech.scikitlearn,
       projectTech.langchain,
       projectTech.groq,
