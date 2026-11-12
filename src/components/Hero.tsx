@@ -27,7 +27,7 @@ const Hero = () => {
           <div className="flex shrink-0 items-center justify-center will-change-[transform,opacity] transform-gpu">
             {/* avatar */}
             <img
-              src={`${import.meta.env.BASE_URL}images/sam.jpg`}
+              src={`${import.meta.env.BASE_URL}images/sam.png`}
               alt="profile"
               decoding="async"
               className="block h-35 w-35 shrink-0 rounded-full border-2 border-border object-cover object-center p-1 shadow-sm sm:h-40 sm:w-40"
@@ -69,7 +69,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-base font-light leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            Anyway...i like creating automated systems, and specialised in {" "}
+            Anyway...i like creating automated systems, and specialised in{" "}
             <span className="inline items-center gap-2 align-middle">
               {skills.map((skill) => (
                 <span
@@ -84,23 +84,17 @@ const Hero = () => {
                 </span>
               ))}
             </span>{" "}
-             also exploring Arch Linux recently.
+            also exploring Arch Linux recently.
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
             <a href="/contact">
-              <Button
-                size="lg"
-              >
+              <Button size="lg">
                 Get in Touch
                 <ChevronRight strokeWidth={2.25} />
               </Button>
             </a>
-            <a
-              href="/Sameer-CV-DE.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="/Sameer-CV-DE.pdf" target="_blank" rel="noreferrer">
               <Button
                 variant="outline"
                 size="lg"
