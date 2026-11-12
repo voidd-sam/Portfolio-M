@@ -131,7 +131,6 @@ export const projects: Project[] = [
       "Modular Structure: Configurations are organized into logical directories and heavily commented, making it easy to tweak keybinds, animations, and bar modules.",
       "One-Command Install: Includes an automated setup script tailored for Arch-based Linux distributions to apply the entire configuration in one step.",
     ],
-
     techStack: [
       projectTech.lua,
       projectTech.toml,
