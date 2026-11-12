@@ -34,7 +34,8 @@ const OpenSource = () => {
           Open Source Contributions
         </h1>
         <p className="text-muted-foreground font-light text-lg">
-          These are my some open source contributions projects and communities.
+          These are my some open source contributions in projects and
+          communities.
         </p>
       </FadeIn>
 
