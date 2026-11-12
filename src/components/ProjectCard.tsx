@@ -5,7 +5,8 @@ import type { Project } from "@/data/projects";
 import { useNavigate } from "react-router-dom";
 import { Pin } from "lucide-react";
 
-const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLink, pinned }: Project) => {
+// Added isNew to the props
+const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLink, pinned, isNew }: Project & { isNew?: boolean }) => {
   const navigate = useNavigate();
   const slug = `/projects/${name.toLowerCase().replace(/\s+/g, "-")}`;
 
@@ -21,6 +22,11 @@ const ProjectCard = ({ name, imgSrc, description, techStack, liveLink, githubLin
         {pinned && (
           <span className="absolute top-2 left-2 z-10 text-[10px] tracking-widest uppercase text-foreground/60 border border-foreground/20 px-1.5 py-0.5 rounded-sm bg-background/50 backdrop-blur-sm">
             Featured
+          </span>
+        )}
+        {isNew && (
+          <span className="absolute top-2 left-2 z-10 text-[10px] tracking-widest uppercase text-white border border-blue-500 bg-blue-500 px-1.5 py-0.5 rounded-sm backdrop-blur-sm">
+            New
           </span>
         )}
         <img
