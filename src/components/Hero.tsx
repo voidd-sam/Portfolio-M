@@ -84,7 +84,7 @@ const Hero = () => {
                 </span>
               ))}
             </span>{" "}
-            also exploring Arch Linux recently.
+            also exploring Arch Linux & rust recently.
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
