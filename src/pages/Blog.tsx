@@ -27,8 +27,7 @@ const Blog = () => {
           All Blogs
         </h1>
         <p className="text-muted-foreground font-light text-lg">
-          Thoughts, write-ups, and explorations on design, development, and
-          everything in between.
+          I like documenting things along the way -
         </p>
       </FadeIn>
       <div className="flex flex-col gap-4 mt-6">
