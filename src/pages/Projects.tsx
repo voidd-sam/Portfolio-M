@@ -1,5 +1,7 @@
 import ProjectCard from "@/components/ProjectCard";
-import ComingSoonCard, { ComingSoonCardWide } from "@/components/ComingSoonCard";
+import ComingSoonCard, {
+  ComingSoonCardWide,
+} from "@/components/ComingSoonCard";
 import { projects } from "@/data/projects";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
@@ -29,8 +31,7 @@ const Projects = () => {
           All Projects
         </h1>
         <p className="text-muted-foreground font-light text-lg">
-          A collection of my recent work, side projects, and experiments. Built
-          from scratch with a focus on clean code and great user experiences.
+          These are some of my projects feel free to fork it.
         </p>
       </FadeIn>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 mt-6">
@@ -40,7 +41,11 @@ const Projects = () => {
           </FadeIn>
         ))}
         {isEven ? (
-          <FadeIn delay={0.15 + projects.length * 0.05} yOffset={20} className="col-span-1 sm:col-span-2">
+          <FadeIn
+            delay={0.15 + projects.length * 0.05}
+            yOffset={20}
+            className="col-span-1 sm:col-span-2"
+          >
             <ComingSoonCardWide />
           </FadeIn>
         ) : (
