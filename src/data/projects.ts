@@ -132,7 +132,12 @@ export const projects: Project[] = [
       "One-Command Install: Includes an automated setup script tailored for Arch-based Linux distributions to apply the entire configuration in one step.",
     ],
 
-    techStack: [projectTech.lua, projectTech.toml, projectTech.hyprland],
+    techStack: [
+      projectTech.lua,
+      projectTech.toml,
+      projectTech.hyprland,
+      projectTech.Arch,
+    ],
     liveLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
     githubLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
   },
