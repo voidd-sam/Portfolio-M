@@ -164,7 +164,7 @@ export const projects: Project[] = [
     
     ],
     techStack: [
-      projectTech.python,
+      projectTech.rust,
       projectTech.apachekafka,
       projectTech.scikitlearn,
       projectTech.langchain,
