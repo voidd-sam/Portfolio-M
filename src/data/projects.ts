@@ -135,7 +135,7 @@ export const projects: Project[] = [
       projectTech.lua,
       projectTech.toml,
       projectTech.hyprland,
-      projectTech.arch_linux,
+      projectTech.arch,
     ],
     liveLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
     githubLink: "https://github.com/voidd-sam/glass-minimal-hyprland",

@@ -21,18 +21,14 @@ export const frontendSkills: TechItem[] = [
   { name: "C", icon: "/tech/c.svg" },
   { name: "Lua", icon: "/tech/lua.svg" },
   { name: "Java Script", icon: "/tech/javascript.svg" },
-  { name: "Linux", icon: "/tech/linux.svg",},
+  { name: "Linux", icon: "/tech/linux.svg" },
   { name: "Bash", icon: "/tech/bash.svg" },
   { name: "SQL", icon: "/tech/sqllite.svg" },
-  { name: "GO", icon: "/tech/go.svg",},
+  { name: "GO", icon: "/tech/go.svg" },
   { name: "Numpy", icon: "/tech/numpy.svg" },
   { name: "Pandas", icon: "/tech/pandas.svg" },
   { name: "Matplotlib", icon: "/tech/matplotlib.svg" },
   { name: "Scikit Learn", icon: "/tech/scikit-learn.svg" },
-
-
-
-
 ];
 
 export const backendSkills: TechItem[] = [
@@ -47,8 +43,6 @@ export const backendSkills: TechItem[] = [
   { name: "Web Socket", icon: "/tech/WebSocket.svg" },
   { name: "Grafana", icon: "/tech/grafana.svg" },
   { name: "Prometheus", icon: "/tech/prometheus.svg" },
-
-
 ];
 
 export const toolsSkills: TechItem[] = [
@@ -63,10 +57,13 @@ export const toolsSkills: TechItem[] = [
     darkIcon: "/social/github-dark.svg",
   },
   { name: "Docker", icon: "/tech/docker.svg" },
-  
 ];
 
-export const skillRows: { direction: "left" | "right"; category: string; items: TechItem[] }[] = [
+export const skillRows: {
+  direction: "left" | "right";
+  category: string;
+  items: TechItem[];
+}[] = [
   {
     direction: "left",
     category: "Frontend",
@@ -85,6 +82,7 @@ export const skillRows: { direction: "left" | "right"; category: string; items: 
 ];
 
 export const projectTech = {
+  arch: { name: "Arch", icon: "/tech/arch-linux.svg" },
   rust: { name: "Rust", icon: "/tech/rust_1.svg" },
   react: { name: "React", icon: "/tech/react.svg" },
   javascript: { name: "JavaScript", icon: "/tech/js.svg" },
@@ -100,15 +98,15 @@ export const projectTech = {
   apacheairflow: { name: "Apache Airflow", icon: "/tech/airflow.svg" },
   apachekafka: { name: "Apache Kafka", icon: "/tech/apache-kafka.svg" },
   llm: { name: "LLM", icon: "/tech/vllm.svg" },
-  groq: {name: "Groq", icon: "/tech/groq.svg"},
+  groq: { name: "Groq", icon: "/tech/groq.svg" },
   dbt: { name: "DBT", icon: "/tech/dbt.svg" },
   duckdb: { name: "Duck DB", icon: "/tech/duckdb.svg" },
   c: { name: "C", icon: "/tech/c.svg" },
   lua: { name: "Lua", icon: "/tech/lua.svg" },
-  linux: { name: "Linux", icon: "/tech/linux.svg",},
+  linux: { name: "Linux", icon: "/tech/linux.svg" },
   bash: { name: "Bash", icon: "/tech/bash.svg" },
   sql: { name: "SQL", icon: "/tech/sqllite.svg" },
-  go: { name: "GO", icon: "/tech/go.svg",},
+  go: { name: "GO", icon: "/tech/go.svg" },
   mistral: { name: "Mistral", icon: "/tech/mistral.svg" },
   numpy: { name: "Numpy", icon: "/tech/numpy.svg" },
   pandas: { name: "Pandas", icon: "/tech/pandas.svg" },
@@ -119,11 +117,11 @@ export const projectTech = {
   graphana: { name: "Grafana", icon: "/tech/grafana.svg" },
   prometheus: { name: "Prometheus", icon: "/tech/prometheus.svg" },
   git: { name: "Git", icon: "/tech/git.svg" },
-  mpv: {name: "MPV", icon: "/tech/mpv.svg"},
-  ytmusic: {name: "YT-Music", icon: "/tech/youtube-music.svg" },
-  neovim: {name: "NeoVim", icon: "/tech/neovim.svg" },
-  hyprland: {name: "Hyprland", icon: "/tech/hyprland.svg" },
-  toml: {name: "Toml", icon: "/tech/toml.svg" },
+  mpv: { name: "MPV", icon: "/tech/mpv.svg" },
+  ytmusic: { name: "YT-Music", icon: "/tech/youtube-music.svg" },
+  neovim: { name: "NeoVim", icon: "/tech/neovim.svg" },
+  hyprland: { name: "Hyprland", icon: "/tech/hyprland.svg" },
+  toml: { name: "Toml", icon: "/tech/toml.svg" },
   github: {
     name: "GitHub",
     icon: "/social/github.svg",
