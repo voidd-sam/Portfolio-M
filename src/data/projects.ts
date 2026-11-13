@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "A self dbt pipeline which heals on its own after breaking/anomaly in entire dbt pipeline anywhere or in databse using a llm which inspect and correct anomaly then opens a Pull Request for review.",
     about:
-      "This project is an agent that automatically fixes broken data pipelines caused by upstream schema changes. When a pipeline fails, the agent inspects the live database, reads the broken SQL model, and rewrites the code to reconcile the mismatch. It then runs real dbt tests in a loop until they pass, empirically verifying the fix before stopping. Finally, it commits the working code to an isolated branch and opens a Pull Request for a human to review.",
+      "This project is an llm agent that automatically fixes broken data pipelines caused by upstream schema changes. When a pipeline fails, the agent inspects the live database, reads the broken SQL model, and rewrites the code to reconcile the mismatch. It then runs real dbt tests in a loop until they pass, empirically verifying the fix before stopping. Finally, it commits the working code to an isolated branch and opens a Pull Request for review.",
     features: [
       "The Self-Healing Loop: The agent reasons in a cycle: it inspects the live database, reads the broken SQL, rewrites the code, and runs dbt tests until they pass.",
       "Human-in-the-Loop GitOps: Agent never pushes directly to production. It commits the fix to an isolated Git branch and opens a PR, keeping humans in control. ",
