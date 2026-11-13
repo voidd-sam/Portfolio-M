@@ -18,6 +18,7 @@ export const projects: Project[] = [
   {
     name: "SHP",
     imgSrc: "/projects/Self-healing-pipeline.png",
+    pinned: true,
     description:
       "A self healing pipeline which heal on its own after breaking/anomaly in entire dbt pipeline anywhere or in databse using a llm which inspect and correct anomaly then opens a Pull Request for review.",
     about:
