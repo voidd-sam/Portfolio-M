@@ -144,13 +144,14 @@ export const projects: Project[] = [
     name: "wtree",
     imgSrc: "/projects/wtree.png",
     description:
-      "A rust based tree file stucture for terminal with zero dependency and it looks cool on terminal",
+      "A tree file stucture for linux written in *rust* for termianl with zero dependency tiny size (around 320kb) and yes it looks cool on terminal",
     about:
       "wtree is a small, fast tree command, written in Rust with no external crates. It walks a directory and prints it as a colored tree.",
     features: [
-      "Zero Dependencies: Built with no external crates, including a hand-written argument parser instead of clap, which keeps the project tiny and the release build around 3 seconds.",
-      "Fast Streaming Output: Prints entries while walking the directory and uses d_type to avoid a stat call per entry, so a tree of about 200 files prints in roughly 1 ms.",
-      "Colored, Readable Tree: Directories are bold blue, symlinks are cyan with their -> target, and connectors are dim gray. A summary footer shows the directory and file counts.",
+      "Zero Dependencies: Built with no external crates, or dependencies.",
+      "Fast Streaming Output: Prints entries while walking the directory in roughly 0.8 ms.",
+      "tiny size: Binary is around 330kb"
+      "Colored, Readable Tree: colored directories and files depending upon file extension",
       "Smart Defaults: Hides dotfiles and dev directories (node_modules, target, .git, dist, build and more) unless you pass --all, and limits depth with --depth.",
       "Pipe-Friendly and Robust: Drops color when piped, honors NO_COLOR and CLICOLOR_FORCE, exits cleanly on broken pipes like wtree | head, and silently skips unreadable subdirectories.",
     ],
