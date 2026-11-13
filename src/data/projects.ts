@@ -143,7 +143,7 @@ export const projects: Project[] = [
     features: [
       "Zero Dependencies: Built with no external crates, or dependencies.",
       "Fast Streaming Output: Prints entries while walking the directory in roughly 0.8 ms.",
-      "tiny size: Binary is around 330kb"
+      "tiny size: Binary is around 330kb",
       "Colored, Readable Tree: colored directories and files depending upon file extension",
       "Smart Defaults: Hides dotfiles and dev directories (node_modules, target, .git, dist, build and more) unless you pass --all, and limits depth with --depth.",
       "Pipe-Friendly and Robust: Drops color when piped, honors NO_COLOR and CLICOLOR_FORCE, exits cleanly on broken pipes like wtree | head, and silently skips unreadable subdirectories.",
