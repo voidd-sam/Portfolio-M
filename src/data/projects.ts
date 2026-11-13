@@ -144,7 +144,7 @@ export const projects: Project[] = [
     name: "wtree",
     imgSrc: "/projects/wtree.png",
     description:
-      "A tree file stucture for linux written in *rust* for termianl with zero dependency tiny size (around 320kb) and yes it looks cool on terminal",
+      "A tree file stucture for linux written in rust for termianl with zero dependency tiny size (around 320kb) and yes it looks cool on terminal",
     about:
       "wtree is a small, fast tree command, written in Rust with no external crates. It walks a directory and prints it as a colored tree.",
     features: [
