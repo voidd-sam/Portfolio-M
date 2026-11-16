@@ -114,7 +114,7 @@ export const projects: Project[] = [
   },
   {
     name: "lace-hyprland",
-    imgSrc: "/projects/gm-hyprland.png",
+    imgSrc: "/projects/lace-hyprland.png",
     description:
       "A complete hyprland desktop configuration featuring a unified color palette, glassmorphism effects, and pre-configured core utilities.",
     about:
