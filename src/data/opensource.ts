@@ -24,24 +24,25 @@ export const openSourceProjects: OpenSourceProject[] = [
     slug: "gmhyprland",
     logoLight: "/images/opensource/hyprland.png",
     logoDark: "/images/opensource/hyprland.png",
-    link: "https://github.com/voidd-sam/glass-minimal-hyprland",
+    link: "https://github.com/voidd-sam/lace-hyprland",
     description: "A full hyprland setup",
     prs: [
       {
         id: "11734",
         title: "add: added many new config",
-        description: "Build a full hyprland working from scratch. Ready to install one click",
-        link: "https://github.com/voidd-sam/glass-minimal-hyprland",
+        description:
+          "Build a full hyprland working from scratch. Ready to install one click",
+        link: "https://github.com/voidd-sam/lace-hyprland",
         status: "Open",
         date: "Jul 2026",
-      }
+      },
     ],
     issues: [
       {
         id: "11731",
         title: "Added pywal16 support ",
         description: "Now supports pywal16 all across desktop",
-        link: "https://github.com/voidd-sam/glass-minimal-hyprland",
+        link: "https://github.com/voidd-sam/lace-hyprland",
         status: "Open",
         date: "Jul 2026",
       },
@@ -49,11 +50,10 @@ export const openSourceProjects: OpenSourceProject[] = [
         id: "11730",
         title: "Liquid glass waybar",
         description: "added new waybar style",
-        link: "https://github.com/voidd-sam/glass-minimal-hyprland",
+        link: "https://github.com/voidd-sam/lace-hyprland",
         status: "Open",
         date: "Jul 2026",
       },
     ],
-  }
+  },
 ];
-

@@ -113,7 +113,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/voidd-sam/ly-ric",
   },
   {
-    name: "Glass Minimal Hyprland",
+    name: "lace-hyprland",
     imgSrc: "/projects/gm-hyprland.png",
     description:
       "A complete hyprland desktop configuration featuring a unified color palette, glassmorphism effects, and pre-configured core utilities.",
@@ -131,8 +131,8 @@ export const projects: Project[] = [
       projectTech.hyprland,
       projectTech.arch,
     ],
-    liveLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
-    githubLink: "https://github.com/voidd-sam/glass-minimal-hyprland",
+    liveLink: "https://github.com/voidd-sam/lace-hyprland",
+    githubLink: "https://github.com/voidd-sam/lace-hyprland",
   },
   {
     name: "wtree",
