@@ -1,6 +1,6 @@
 ---
-title: "Building wtree - a directory tree viewer in Rust"
-description: "How I built a small, dependency-free tree command in Rust that reads .gitignore, how you can build one yourself, and the mistakes I made while shipping it."
+title: "Building wtree - A directory tree viewer in Rust"
+description: "Built a small, dependency-free tree command in Rust that reads .gitignore, how you can build one yourself, and the mistakes I made while shipping it."
 date: "2026-11-19"
 readTime: "14 min read"
 tags: ["Rust", "CLI", "Open Source", "Git"]
