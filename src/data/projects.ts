@@ -140,7 +140,7 @@ export const projects: Project[] = [
     description:
       "A tree file stucture for linux written in rust for termianl with zero dependency tiny size (around 320kb) and yes it looks cool on terminal",
     about:
-      "wtree is a small, fast tree command, written in Rust with no external crates. It walks a directory and prints it as a colored tree.",
+      "wtree is a small, fast tree command, written in Rust with no external crates. It walks a directory and prints it as a colored and icon tree.",
     features: [
       "Zero Dependencies: Built with no external crates, or dependencies.",
       "Fast Streaming Output: Prints entries while walking the directory in roughly 0.8 ms.",
