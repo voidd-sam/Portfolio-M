@@ -6,9 +6,9 @@ readTime: "14 min read"
 tags: ["Rust", "File tree", "CLI", "Open Source", "Git"]
 ---
 
-I wanted a `tree` command that did not show me `target/` and `node_modules/` every time I ran it. The usual fix is to remember flags or write an ignore list in a shell alias. I decided to write my own tool instead, in Rust, with no external crates.
+I was learning rust and during a project i frequently encounter a problem when i have to see quickly the structure of any project. yes there is tools for this but i wanted to build my own according to how i wants it so since i was learning rust i decided to build it in rust ... yup that's the whole story now lets talk about how anyone can build it and its pretty easy not some rocket science.
 
-The result is wtree. It prints a directory as a tree, colors names by file type, and reads the project's `.gitignore` so it hides what git already considers noise. This is how it works, how you can build the same thing, and what went wrong while I shipped it.
+The result is wtree. It prints a directory as a tree, colors names by file type, icons for each file type and reads the project's `.gitignore` so it hides what git already considers noise. This is how it works.
 
 The source is at https://github.com/voidd-sam/wtree.
 
