@@ -129,6 +129,7 @@ export const projects: Project[] = [
       projectTech.toml,
       projectTech.hyprland,
       projectTech.arch,
+      projectTech.bash,
     ],
     liveLink: "https://github.com/voidd-sam/lace-hyprland",
     githubLink: "https://github.com/voidd-sam/lace-hyprland",
