@@ -1,9 +1,9 @@
 ---
 title: "Building wtree - A directory tree viewer in Rust"
-description: "Built a small, dependency-free tree command in Rust that reads .gitignore, how you can build one yourself, and the mistakes I made while shipping it."
-date: "2026-11-19"
+description: "Built a small, dependency-free tree command in Rust that reads .gitignore,display icons for file types and has colored tree. and can be easliy build anyone"
+date: "2026-11-08"
 readTime: "14 min read"
-tags: ["Rust", "CLI", "Open Source", "Git"]
+tags: ["Rust", "File tree", "CLI", "Open Source", "Git"]
 ---
 
 I wanted a `tree` command that did not show me `target/` and `node_modules/` every time I ran it. The usual fix is to remember flags or write an ignore list in a shell alias. I decided to write my own tool instead, in Rust, with no external crates.
