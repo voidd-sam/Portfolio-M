@@ -153,7 +153,7 @@ export const projects: Project[] = [
       projectTech.toml,
       projectTech.linux,
       projectTech.git,
-      projectTech.Bash,
+      projectTech.bash,
     ],
     liveLink: "https://github.com/voidd-sam/wtree",
     githubLink: "https://github.com/voidd-sam/wtree",
