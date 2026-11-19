@@ -278,57 +278,6 @@ Add unit tests for the matcher. It is the part of this tool most likely to have 
 
 wtree also supports `**`, character classes like `[a-z]`, and backslash escapes. It does not read the global git ignore file, and it does not check whether git tracks a file. A tracked file that matches an ignore rule is hidden by wtree even though git still tracks it. I documented that in the README, because it is the kind of difference that confuses people.
 
-### Step 8: Keep what is hidden visible
-
-A tool that silently hides things is hard to trust. wtree counts the entries it skipped because of ignore rules and prints the number in the footer: `1 ignored (-i to show)`. The `-i` flag shows them again, dimmed. It costs a counter and a line of output, and it removes most of the "where did my folder go" questions.
-
-## Shipping it
-
-Writing the code was the easier half. These are the steps for getting a binary to other people.
-
-### Build and install
-
-```bash
-cargo build --release
-cp target/release/wtree ~/.local/bin/wtree
-```
-
-`~/.local/bin` must be in your `PATH`. After that, `wtree` works from any folder.
-
-### Tag the version
-
-A git tag marks the exact commit a version was built from:
-
-```bash
-git tag -a v0.1.3 -m "wtree v0.1.3"
-git push origin v0.1.3
-```
-
-### Package the binary
-
-```bash
-mkdir -p /tmp/wtree-v0.1.3
-cp target/release/wtree README.md /tmp/wtree-v0.1.3/
-tar -czf wtree-v0.1.3-x86_64-linux.tar.gz -C /tmp wtree-v0.1.3
-sha256sum wtree-v0.1.3-x86_64-linux.tar.gz > wtree-v0.1.3-x86_64-linux.tar.gz.sha256
-```
-
-I build the folder in `/tmp` so the archive contains one clean folder and my project stays free of leftovers. The `.sha256` file holds a fingerprint of the archive. A user can run `sha256sum -c` on it to confirm the download is intact.
-
-### Publish a release
-
-On GitHub, open Releases, create a new release from the tag, and attach the `.tar.gz` and the `.sha256` file. Then do what most people skip: download the release the way a user would, check the checksum, and run it.
-
-```bash
-curl -LO https://github.com/voidd-sam/wtree/releases/download/v0.1.3/wtree-v0.1.3-x86_64-linux.tar.gz
-curl -LO https://github.com/voidd-sam/wtree/releases/download/v0.1.3/wtree-v0.1.3-x86_64-linux.tar.gz.sha256
-sha256sum -c wtree-v0.1.3-x86_64-linux.tar.gz.sha256
-tar -xzf wtree-v0.1.3-x86_64-linux.tar.gz
-./wtree-v0.1.3/wtree --version
-```
-
-If it prints `OK` and the right version, the release works.
-
 ### One more thing about portability
 
 A normal Rust build on Linux links to the system's glibc. A binary built on a new system can fail on an older distribution with a "GLIBC not found" error. If you want one binary that runs anywhere on x86-64 Linux, build for the musl target:
