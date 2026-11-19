@@ -327,12 +327,6 @@ Release archives belong on the GitHub Releases page, not in the repository.
 
 **A start-up problem I did not expect: the path.** The ignore rules are relative to the folder that holds each `.gitignore`. That means the walker needs absolute paths to compute the relative path of each entry. I call `fs::canonicalize` on the start folder once and walk that path, while printing the name the user typed.
 
-## What is missing
-
-wtree does not show file sizes, dates or permissions. It has no pattern filters like `-P` and `-I`, no directories-only mode, no JSON output, and no git status markers. It is developed on Linux and I have not tested it on Windows. The README lists these limits so nobody has to find them by surprise.
-
-The next things I plan to add are `-D` for directories only, pattern filters that reuse the glob matcher from the `.gitignore` code, and git status markers next to changed files.
-
 ## If you want to build your own
 
 A short list of what I would tell someone starting today:
