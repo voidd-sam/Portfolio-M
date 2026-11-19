@@ -117,8 +117,7 @@ export const projects: Project[] = [
     imgSrc: "/projects/lace-hyprland.png",
     description:
       "A complete hyprland desktop configuration featuring a unified color palette, glassmorphism effects, and pre-configured core utilities.",
-    about:
-      "This project is a modular dotfiles repository for the Hyprland Wayland compositor. It provides a complete desktop environment configuration that can be copied directly into a user's .config directory. It bundles pre-configured components—including Waybar, Kitty, Rofi, and Dunst—unified under a consistent color palette and glassmorphism aesthetic. The setup is designed for Arch-based systems and includes an automated install script to immediately apply the environment.",
+    about: "A hyprland setup for arch linux with all essentail config ",
     features: [
       "Unified Aesthetic: Applies a consistent color palette and glassmorphism effects, such as blurred bars and translucent panels, across all desktop components.",
       "Pre-configured Utilities: Bundles ready-to-use setups for Waybar, Kitty, Rofi, Dunst, Hyprlock, and a custom btop system monitor theme.",
